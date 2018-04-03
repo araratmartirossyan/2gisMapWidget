@@ -6,17 +6,17 @@
 ```
   <script type="text/javascript" src="https://maps.api.2gis.ru/2.0/loader.js"></script>
   <script src="./js/items.js"></script>
-  <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.js?alt=media&token=76980fbd-9768-4378-a557-a0ec1c01d120"></script>
+  <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.min.js?alt=media&token=00222976-23a3-4e52-b810-012a3eee219d"></script>
   
   <!-- Виджет карты -->
   <div id="map" style="width: 100%; height: 700px;"></div> 
   
 ```
 
-`<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.js?alt=media&token=76980fbd-9768-4378-a557-a0ec1c01d120"></script>` - *для старых браузерова*
+`<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.min.js?alt=media&token=00222976-23a3-4e52-b810-012a3eee219d"></script>` - *для старых браузерова*
 
 
-`<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/mapes6.js?alt=media&token=309c6ba4-b36b-47fe-86b2-c6a8e8909068"></script>` - *для последних браузеров*
+`<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/mapes6.js?alt=media&token=c7ba164e-9a6a-4312-9397-8f4e689893a6"></script>` - *для последних браузеров*
 
 Для настройки точек координат и вывода информации по ним необходимо создать файл markers.js и зарегистрировать массив объектов точек координат:
 

@@ -14,9 +14,6 @@
 ```
 
 `<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.js?alt=media&token=76980fbd-9768-4378-a557-a0ec1c01d120"></script>` - для старых браузерова
-
-
-
 `<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/mapes6.js?alt=media&token=309c6ba4-b36b-47fe-86b2-c6a8e8909068"></script>` - для последних браузеров
 
 Для настройки точек координат и вывода информации по ним необходимо создать файл markers.js и зарегистрировать массив объектов точек координат:

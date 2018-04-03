@@ -1,12 +1,13 @@
 // стили
 const styles = `
   .modalStyles {
-    position: absolute;
+    position: relative;
     background: #fff;
-    top: 120px;
+    top: 0;
     right: 0;
-    margin: 0 auto;
     left: 0;
+    bottom: 0;
+    align-self: center;
     border-radius: 8px;
     min-width: 120px;
     max-width: 440px;
@@ -14,8 +15,14 @@ const styles = `
   .modalContainerStyles {
     background: rgba(0, 0, 0, 0.6509803921568628);
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
+    right: 0;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-box;
+    justify-content: center;
     left: 0;
     bottom: 0;
   }
@@ -25,9 +32,10 @@ const styles = `
     -webkit-padding-start: 0;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
+    padding-left: 0;
   }
   .listItem {
-    padding: 12px;
+    padding: 12px 12px 12px 24px;
     border-bottom: 1px solid #ddd;
     font-weight: 100;
   }

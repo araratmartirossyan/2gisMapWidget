@@ -1,1 +1,105 @@
-"use strict";function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var styles="\n  .modalStyles {\n    position: absolute;\n    background: #fff;\n    top: 120px;\n    right: 0;\n    margin: 0 auto;\n    left: 0;\n    border-radius: 8px;\n    min-width: 120px;\n    max-width: 440px;\n  }\n  .modalContainerStyles {\n    background: rgba(0, 0, 0, 0.6509803921568628);\n    width: 100%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    bottom: 0;\n  }\n  .listStyles {\n    list-style-type: none;\n    font-family: sans-serif;\n    -webkit-padding-start: 0;\n    -webkit-margin-before: 0;\n    -webkit-margin-after: 0;\n  }\n  .listItem {\n    padding: 12px;\n    border-bottom: 1px solid #ddd;\n    font-weight: 100;\n  }\n  .listItem:last-child {\n    border: 0\n  }\n",markers=items.map(function(e,t){return[e.lat,e.lang,t]});function clearedElement(e){return["lat","lang","id"].includes(e)}function createDomElement(e,t,n){var r=document.createElement(e);return document.body.appendChild(r),r.id=t,setStyles(n,r),"modalContainer"===t&&r.addEventListener("click",closeModal),r}function setMarkerInfo(e){var t=createDomElement("ul","list","listStyles");for(var n in e)if(!clearedElement(n)){var r=createDomElement("li","listItem","listItem");r.innerText=e[n],t.appendChild(r)}return document.getElementById("modalContent").appendChild(t)}function createModal(e){var t=e.latlng,n=items[t.alt],r=createDomElement("div","modalContainer","modalContainerStyles"),a=createDomElement("div","modalContent","modalStyles");return setMarkerInfo(n),r.appendChild(a)}function closeModal(){return document.getElementById("modalContainer").remove()}function setStyles(e,t){return t.setAttribute("class",e)}function init(){var e=document.createElement("style");e.type="text/css",e.styleSheet?e.styleSheet.cssText=styles:e.appendChild(document.createTextNode(styles)),document.getElementsByTagName("head")[0].appendChild(e),DG.then(function(){var e=DG.map("map",{center:[54.98,82.89],zoom:15,minZoom:5,maxZoom:15}),t=markers.map(function(t,n){return DG.marker([].concat(_toConsumableArray(t))).addTo(e)}),n=DG.featureGroup([].concat(_toConsumableArray(t)));e.fitBounds(n.getBounds()),n.addTo(e),n.on("click",function(e){return createModal(e)})})}init();
+'use strict';
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+// стили
+var styles = '\n  .modalStyles {\n    position: relative;\n    background: #fff;\n    top: 0;\n    right: 0;\n    left: 0;\n    bottom: 0;\n    align-self: center;\n    border-radius: 8px;\n    min-width: 120px;\n    max-width: 440px;\n  }\n  .modalContainerStyles {\n    background: rgba(0, 0, 0, 0.6509803921568628);\n    width: 100%;\n    position: fixed;\n    top: 0;\n    right: 0;\n    display: -ms-flexbox;\n    display: flex;\n    display: -webkit-flex;\n    display: -moz-box;\n    justify-content: center;\n    left: 0;\n    bottom: 0;\n  }\n  .listStyles {\n    list-style-type: none;\n    font-family: sans-serif;\n    -webkit-padding-start: 0;\n    -webkit-margin-before: 0;\n    -webkit-margin-after: 0;\n    padding-left: 0;\n  }\n  .listItem {\n    padding: 12px 12px 12px 24px;\n    border-bottom: 1px solid #ddd;\n    font-weight: 100;\n  }\n  .listItem:last-child {\n    border: 0\n  }\n';
+
+// Генерация маркеров из файла
+var markers = items.map(function (item, key) {
+  return item = [item.lat, item.lang, key];
+});
+
+// Сортировка информации маркера
+function clearedElement(element) {
+  var array = ['lat', 'lang', 'id'];
+  array.forEach(function(item) {
+    return item !== element
+  });
+}
+
+// Функция создания Dom элементов
+function createDomElement(element, id, style) {
+  var eleme = document.createElement(element);
+  document.body.appendChild(eleme);
+  eleme.id = id;
+  setStyles(style, eleme);
+  if (id === 'modalContainer') {
+    eleme.addEventListener('click', closeModal);
+  }
+  return eleme;
+}
+
+// Функция вывода описание в модальном окне
+function setMarkerInfo(marker) {
+  var list = createDomElement('ul', 'list', 'listStyles');
+  for (var info in marker) {
+    if (!clearedElement(info)) {
+      var listItem = createDomElement('li', 'listItem', 'listItem');
+      listItem.innerText = marker[info];
+      list.appendChild(listItem);
+    }
+  }
+  return document.getElementById('modalContent').appendChild(list);
+}
+
+// Функция создания модального окна 
+function createModal(_ref) {
+  var latlng = _ref.latlng;
+
+  var markerInfo = items[latlng.alt];
+  var container = createDomElement('div', 'modalContainer', 'modalContainerStyles');
+  var content = createDomElement('div', 'modalContent', 'modalStyles');
+  setMarkerInfo(markerInfo);
+  return container.appendChild(content);
+}
+
+// Функция уничтожения модального окна
+function closeModal() {
+  var elem = document.getElementById('modalContainer');
+  console.log(elem.parentNode)
+  return elem.parentNode.removeChild(elem);
+}
+
+// Функция присваивания класса новым Dom элементам
+function setStyles(className, element) {
+  return element.setAttribute('class', className);
+}
+
+// Функция инициализации приложения
+function init() {
+  // Подключение стилей для IE10 и прочих браузеров
+  var styleLink = document.createElement('style');
+  styleLink.type = 'text/css';
+  if (styleLink.styleSheet) {
+    styleLink.styleSheet.cssText = styles;
+  } else {
+    styleLink.appendChild(document.createTextNode(styles));
+  }
+
+  document.getElementsByTagName("head")[0].appendChild(styleLink);
+
+  // Методы работы с картой
+  DG.then(function () {
+    var map = DG.map('map', {
+      center: [54.98, 82.89],
+      zoom: 15,
+      minZoom: 5,
+      maxZoom: 15
+    });
+
+    var updatedMarkers = markers.map(function (item, key) {
+      return item = DG.marker([].concat(_toConsumableArray(item))).addTo(map);
+    });
+
+    var group = DG.featureGroup([].concat(_toConsumableArray(updatedMarkers)));
+
+    map.fitBounds(group.getBounds());
+    group.addTo(map);
+    group.on('click', function (e) {
+      return createModal(e);
+    });
+  });
+}
+
+init();

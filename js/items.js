@@ -1,4 +1,4 @@
-const items = [
+var items = [
   {
     lat: 54.96,
     lang: 82.889,

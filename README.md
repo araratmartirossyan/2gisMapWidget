@@ -1,19 +1,20 @@
 ## 2gis виджет для установки карты на любой сайт
 
-Чтобы добавить виджет на Ваш сайт, просто скопируйте код для вставки на страницу, куда Вы хотите подключить виджет. Заранее скачав файлы и положив их в вашу папку. Либо воспользовавшись ссылкой.
+Чтобы добавить виджет на Ваш сайт, просто скопируйте код для вставки на страницу, куда Вы хотите подключить виджет. Заранее скачав файлы и положив их в вашу папку. Либо воспользовавшись ссылкой из примера.
 
 Код для вставки:
 ```
   <script type="text/javascript" src="https://maps.api.2gis.ru/2.0/loader.js"></script>
   <script src="./js/items.js"></script>
-  <script src="./js/map.js"></script>
+  <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.js?alt=media&token=76980fbd-9768-4378-a557-a0ec1c01d120"></script>
+  
   <!-- Виджет карты -->
   <div id="map" style="width: 100%; height: 700px;"></div> 
   
 ```
 
-`map.js` - для старых браузерова
-`mapes6.js` - для последних браузеров
+`<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/map.js?alt=media&token=76980fbd-9768-4378-a557-a0ec1c01d120"></script>` - для старых браузерова
+`<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/mapes6.js?alt=media&token=309c6ba4-b36b-47fe-86b2-c6a8e8909068"></script>` - для последних браузеров
 
 Для настройки точек координат и вывода информации по ним необходимо создать файл markers.js и зарегистрировать массив объектов точек координат:
 

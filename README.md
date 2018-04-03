@@ -18,7 +18,7 @@
 
 `<script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/incodewetrust-9aaec.appspot.com/o/mapes6.js?alt=media&token=c7ba164e-9a6a-4312-9397-8f4e689893a6"></script>` - *для последних браузеров*
 
-Для настройки точек координат и вывода информации по ним необходимо создать файл markers.js и зарегистрировать массив объектов точек координат:
+Для настройки точек координат и вывода информации по ним необходимо создать файл items.js и зарегистрировать массив объектов точек координат:
 
 ```
 const items = [
